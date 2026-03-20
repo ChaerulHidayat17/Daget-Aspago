@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Unlock Gadget Link</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.3), transparent),
+        radial-gradient(circle at bottom right, rgba(168,85,247,0.3), transparent),
+        linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      padding: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      padding: 30px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15);
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      animation: fadeUp 0.6s ease;
+    }
+
+    @keyframes fadeUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 26px;
+    }
+
+    .riddle {
+      font-size: 15px;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      margin-bottom: 10px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #38bdf8, #6366f1);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+    }
+
+    .error {
+      margin-top: 10px;
+      color: #f87171;
+      font-size: 14px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .success {
+      animation: fadeUp 0.5s ease;
+    }
+
+    .link-btn {
+      display: block;
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 14px;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    .link-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hint {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div id="quizBox">
+    <h1>🧠 Tebak Dulu</h1>
+    <div class="riddle">
+      Aku selalu naik tapi tidak pernah turun.<br><br>
+<b>Apa aku?</b>
+    </div>
+
+    <input type="text" id="answer" placeholder="Jawaban kamu...">
+    <button onclick="checkAnswer()">Cek Jawaban</button>
+
+    <div class="error" id="errorMsg"></div>
+    
+  </div>
+
+  <div id="successBox" class="hidden success">
+    <h1>🎉 Benar!</h1>
+    <p>Kamu berhasil membuka link rahasia.</p>
+
+    <a href="https://link.dana.id/danakaget?c=sh4rrbr5f&r=ftYQxy&orderId=20260320101214770715010300166428569880170" target="_blank" class="link-btn">
+      🔓 Buka Link Gadget
+    </a>
+  </div>
+</div>
+
+<script>
+  const correctAnswer = "umur"; // jawaban
+
+  function checkAnswer() {
+    const input = document.getElementById("answer").value.toLowerCase().trim();
+
+    if (input === correctAnswer) {
+      document.getElementById("quizBox").classList.add("hidden");
+      document.getElementById("successBox").classList.remove("hidden");
+    } else {
+      document.getElementById("errorMsg").innerText = "Jawaban salah 😅";
+    }
+  }
+</script>
+
+</body>
+</html>
